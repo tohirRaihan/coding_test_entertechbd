@@ -2,10 +2,7 @@ const logIn = (event) => {
     event.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const data = {
-        email: email,
-        password: password
-    };
+    const data = {email, password};
 
     fetch('../data/users/login.php', {
         method: 'POST',

@@ -5,7 +5,6 @@ const register = (event) => {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm_password').value;
     const data = { name, email, password };
-    console.log(data);
 
     if (password === confirmPassword) {
         fetch('../data/users/register.php', {
@@ -17,7 +16,6 @@ const register = (event) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 if (data.status === 'user_exist') {
                     Swal.fire(
                         'Error!',
