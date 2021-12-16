@@ -18,18 +18,20 @@ const register = (event) => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                if (data.status === 'success') {
+                if (data.status === 'user_exist') {
+                    Swal.fire(
+                        'Error!',
+                        'User already registered! Please login!',
+                        'warning'
+                    );
+                } else if (data.status === 'success') {
                     window.location = data.url;
                 } else {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Error!',
-                        text: 'User email/password does not match'
-                    });
+                    Swal.fire('Error!', 'Some info is missing', 'warning');
                 }
             })
             .catch((error) => Swal.fire('Something went wrong', '', 'error'));
     } else {
-        Swal.fire('Password doesn\'t match', '', 'warning')
+        Swal.fire("Password doesn't match", '', 'warning');
     }
 };

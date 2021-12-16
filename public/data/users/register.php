@@ -13,9 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email    = $data['email'];
     $password = md5($data['password']);
 
-    // user registration
-    $user_register = User::register($name, $email, $password);
-    if ($user_register) {
+    // check if user exist? if not then create a new user
+    if (User::checkUser($email)) {
+        $return['status'] = 'user_exist';
+    } else if ($user_register = User::register($name, $email, $password)) {
         $return['status'] = 'success';
         $return['url'] = "login.php";
         Session::setSessionData('success_message', 'Registration successfull! Please login.');
