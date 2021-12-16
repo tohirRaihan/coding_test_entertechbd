@@ -4,6 +4,32 @@ const register = (event) => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm_password').value;
-    console.log(name, email, password, confirmPassword);
-    console.log('submitted');
-}
+    const data = { name, email, password };
+    console.log(data);
+
+    if (password === confirmPassword) {
+        fetch('../data/users/register.php', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json' // sent request
+            }
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.status === 'success') {
+                    window.location = data.url;
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Error!',
+                        text: 'User email/password does not match'
+                    });
+                }
+            })
+            .catch((error) => Swal.fire('Something went wrong', '', 'error'));
+    } else {
+        Swal.fire('Password doesn\'t match', '', 'warning')
+    }
+};

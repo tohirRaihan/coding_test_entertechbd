@@ -1,4 +1,8 @@
-<?php require_once('../../private/initialize.php');
+<?php
+
+use Database\Session;
+
+require_once('../../private/initialize.php');
 $scripts = ['login'];
 ?>
 
@@ -10,6 +14,13 @@ $scripts = ['login'];
 <div class="container pt-sm-5 mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+            <!-- success message goes here -->
+            <?php if ($message = Session::getFlashData('success_message')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= $message ?>
+                </div>
+            <?php endif; ?>
+
             <div class="card shadow-lg">
                 <div class="border-top border-3 border-primary rounded-top"></div>
                 <i class="d-block fas fa-user-circle text-center text-primary my-3" style="font-size: 80px;"></i>
