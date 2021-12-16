@@ -15,13 +15,13 @@ $scripts = ['login'];
                 <i class="d-block fas fa-user-circle text-center text-primary my-3" style="font-size: 80px;"></i>
 
                 <div class="card-body px-5">
-                    <form>
+                    <form onsubmit="logIn(event)" method="POST">
                         <div class="mb-3">
-                            <input type="email" class="form-control py-2" placeholder="Your email">
+                            <input id="email" type="email" class="form-control py-2" placeholder="Your email">
                         </div>
 
                         <div class="mb-3">
-                            <input type="password" class="form-control py-2" placeholder="Password">
+                            <input id="password" type="password" class="form-control py-2" placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-primary d-block col-5 mx-auto my-3">Login</button>
                     </form>
