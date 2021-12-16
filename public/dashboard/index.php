@@ -1,7 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
 
 <!-- #####=START Header=##### -->
-<?php require_once(SHARED_PATH.'/dashboard_header.php'); ?>
+<?php require_once(SHARED_PATH.'/header.php'); ?>
 <!-- #####=END Header=##### -->
 
 <!-- main content -->
@@ -14,5 +14,5 @@
 </div>
 
 <!-- #####=START FOOTER=##### -->
-<?php require_once(SHARED_PATH.'/dashboard_footer.php'); ?>
+<?php require_once(SHARED_PATH.'/footer.php'); ?>
 <!-- #####=END FOOTER=##### -->

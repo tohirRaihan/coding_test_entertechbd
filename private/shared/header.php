@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?=url_for('assets/frontend_assets/css/bootstrap.min.css')?>" />
+    <link rel="stylesheet" href="<?=url_for('assets/css/bootstrap.min.css')?>" />
 
-    <title>PHP_template</title>
+    <title>Coding Task</title>
 </head>
 <body>
