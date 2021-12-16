@@ -1,4 +1,6 @@
-<?php require_once('../../private/initialize.php'); ?>
+<?php require_once('../../private/initialize.php');
+$scripts = ['login'];
+?>
 
 <!-- #####=START Header=##### -->
 <?php require_once(SHARED_PATH . '/header.php'); ?>

@@ -10,6 +10,12 @@
     <script src="https://kit.fontawesome.com/652ace3a30.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= url_for('assets/css/bootstrap.min.css') ?>" />
+    <!-- File specific Styles -->
+    <?php
+    if (isset($styles)) {
+        load_styles(url_for('assets/css/'), $styles);
+    }
+    ?>
 
     <title>Coding Task</title>
 </head>
