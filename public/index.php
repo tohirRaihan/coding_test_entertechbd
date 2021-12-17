@@ -12,6 +12,9 @@ $scripts = ['product'];
 <!-- #####=START Header=##### -->
 <?php require_once(SHARED_PATH . '/header.php'); ?>
 <!-- #####=END Header=##### -->
+<!-- #####=START Main nav=##### -->
+<?php require_once(SHARED_PATH . '/main_nav.php'); ?>
+<!-- #####=END Main nav=##### -->
 
 <!-- main content -->
 <div class="container">
