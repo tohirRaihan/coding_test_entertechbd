@@ -21,9 +21,10 @@ $count = 1;
     <div class="row">
         <div class="col">
             <h1 class="text-center mb-4">All products</h1>
-            <a class="btn btn-success mb-3" href="">
+            <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#new-product">
                 New Product <i class="fa fa-plus-circle ml-2" aria-hidden="true"></i>
-            </a>
+            </button>
+
             <table class="table table-striped table-bordered text-center">
                 <thead>
                     <tr>
@@ -52,6 +53,10 @@ $count = 1;
         </div>
     </div>
 </div>
+
+<!-- ########## START: MODALS ########## -->
+<?php include_once PRIVATE_PATH . '/modals/products/create_product.php' ?>
+<!-- ########## END: MODALS ########## -->
 
 <!-- #####=START FOOTER=##### -->
 <?php require_once(SHARED_PATH . '/footer.php'); ?>
