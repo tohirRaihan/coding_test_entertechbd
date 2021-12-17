@@ -38,6 +38,16 @@ class User extends Database
         $sql = "SELECT * FROM `users` WHERE `id` = ? LIMIT 1";
         return parent::getRow($sql, [$id]);
     }
+
+    public static function auth()
+    {
+        if (Session::getSessionData('user_logged')) {
+            return true;
+        } else {
+            redirect_to(url_for('dashboard/login.php'));
+            die;
+        }
+    }
 }
 // Create a new user to instantiate a Connection
 $user = new User;

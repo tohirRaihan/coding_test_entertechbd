@@ -17,10 +17,10 @@ $scripts = ['product'];
 <!-- #####=END Main nav=##### -->
 
 <!-- main content -->
-<div class="container">
+<div class="container my-5">
     <div class="row">
         <div class="col">
-            <h1 class="mt-5 text-center">All products</h1>
+            <h1 class="text-center mb-4">All products</h1>
             <table class="table table-striped table-bordered text-center">
                 <thead>
                     <tr>
