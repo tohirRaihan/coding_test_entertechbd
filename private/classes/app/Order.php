@@ -20,7 +20,8 @@ class Order extends Database
                 JOIN users
                 ON orders.user_id = users.id
                 JOIN products
-                ON orders.product_id = products.id;";
+                ON orders.product_id = products.id
+                ORDER BY `id` DESC;";
         return parent::getRows($sql, []);
     }
 
