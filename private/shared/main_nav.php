@@ -22,7 +22,7 @@
                     </li>
                 <?php else : ?>
                     <div class="d-flex">
-                        <button class="btn btn-outline-success" type="submit">Login</button>
+                        <button class="btn btn-primary" type="submit">Login</button>
                     </div>
                 <?php endif; ?>
             </ul>
