@@ -1,11 +1,11 @@
 <?php
 
+require_once '../../../private/initialize.php';
+
+use App\Order;
 use App\Product;
 use App\User;
 use Database\Session;
-
-require_once '../../../private/initialize.php';
-
 
 $response = file_get_contents('php://input');
 $data     = json_decode($response, true);
@@ -29,15 +29,21 @@ $product_location = $product['location'];
 
 $user_id = Session::getSessionData('user_logged');
 $user = User::findUser($user_id);
-print_r($user);
-die;
-$amount = $unit_price * $quantity;
+$user_location = $user['location'];
 
-// // create new order
-// $create_new_order = Order::create($customer_name, $ordered_items, $ordered_amount);
-// if ($create_new_order) {
-//     $return['status'] = 'success';
-// } else {
-//     $return['status'] = 'failure';
-// }
-// echo json_encode($return);
+if ($user_location === $product_location) {
+    $amount = $unit_price * $quantity * 0.75;
+    $return['successMessage'] = 'Hurrah! Your order placed successfully and you get 25% discount';
+} else {
+    $amount = $unit_price * $quantity;
+    $return['successMessage'] = 'Your order placed successfully!';
+}
+
+// create new order
+$create_new_order = Order::create($user_id, $product_id, $quantity, $amount);
+if ($create_new_order) {
+    $return['status'] = 'success';
+} else {
+    $return['status'] = 'failure';
+}
+echo json_encode($return);

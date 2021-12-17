@@ -44,13 +44,12 @@ const buyProduct = (event, id) => {
                     'Content-type': 'application/json' // sent request
                 }
             })
-                .then((res) => res.text())
+                .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     if (data.status === 'success') {
                         Swal.fire(
                             'Purchased!',
-                            'Your product has been purchased successfully!.',
+                            data.successMessage,
                             'success'
                         );
                     } else if (data.status === 'userNotLoggedIn') {
