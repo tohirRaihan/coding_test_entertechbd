@@ -1,4 +1,8 @@
-<?php use Database\Session; ?>
+<?php
+
+use Database\Session;
+
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">Coding Task</a>

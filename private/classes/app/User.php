@@ -48,6 +48,16 @@ class User extends Database
             die;
         }
     }
+
+    public static function isAdmin($id)
+    {
+        $user = self::findUser($id);
+        if ((int)$user['role'] === 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 // Create a new user to instantiate a Connection
 $user = new User;
