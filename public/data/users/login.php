@@ -15,7 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_login = User::login($email, $password);
     if ($user_login) {
         $return['status'] = 'success';
-        $return['url'] = "../index.php";
+        if ((int)$user_login['role'] === 1) {
+            $return['url'] = "index.php";
+        } else {
+            $return['url'] = "../index.php";
+        }
         Session::setSessionData('user_logged', $user_login['id']);
         Session::setSessionData('user_name', $user_login['name']);
     } else {

@@ -1,7 +1,9 @@
 <?php
 
+use App\User;
 use Database\Session;
 
+$user_id = Session::getSessionData('user_logged') ?? 0;
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -11,9 +13,11 @@ use Database\Session;
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
+                <?php if (User::isAdmin($user_id)) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="<?= url_for('dashboard/index.php') ?>">Dashboard</a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($name = Session::getSessionData('user_name')) : ?>
 
                     <li class="nav-item dropdown">
@@ -26,7 +30,7 @@ use Database\Session;
                     </li>
                 <?php else : ?>
                     <div class="d-flex">
-                        <button class="btn btn-primary" type="submit">Login</button>
+                        <a class="btn btn-primary" href="<?= url_for('dashboard/login.php') ?>">Login</a>
                     </div>
                 <?php endif; ?>
             </ul>

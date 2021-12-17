@@ -51,9 +51,14 @@ class User extends Database
 
     public static function isAdmin($id)
     {
-        $user = self::findUser($id);
-        if ((int)$user['role'] === 1) {
-            return true;
+        if ($id) {
+            # code...
+            $user = self::findUser($id);
+            if ((int)$user['role'] === 1) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
