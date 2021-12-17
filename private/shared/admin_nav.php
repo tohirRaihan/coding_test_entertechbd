@@ -11,13 +11,10 @@ use Database\Session;
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <?php if (User::isAdmin()) : ?>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= url_for('dashboard/index.php') ?>">Dashboard</a>
-                    </li>
-                <?php endif; ?>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= url_for('index.php') ?>">Home</a>
+                </li>
                 <?php if ($name = Session::getSessionData('user_name')) : ?>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <strong class="text-success"><?= $name ?></strong>
@@ -26,10 +23,6 @@ use Database\Session;
                             <li><a class="dropdown-item" href="<?= url_for('dashboard/logout.php') ?>">Logout</a></li>
                         </ul>
                     </li>
-                <?php else : ?>
-                    <div class="d-flex">
-                        <a class="btn btn-primary" href="<?= url_for('dashboard/login.php') ?>">Login</a>
-                    </div>
                 <?php endif; ?>
             </ul>
 

@@ -16,7 +16,7 @@ class User extends Database
     public static function logout()
     {
         Session::clearSession();
-        redirect_to(url_for('dashboard/login.php'));
+        redirect_to(url_for('index.php'));
         die;
     }
 
@@ -49,16 +49,10 @@ class User extends Database
         }
     }
 
-    public static function isAdmin($id)
+    public static function isAdmin()
     {
-        if ($id) {
-            # code...
-            $user = self::findUser($id);
-            if ((int)$user['role'] === 1) {
-                return true;
-            } else {
-                return false;
-            }
+        if (Session::getSessionData('user_role') == 1) {
+            return true;
         } else {
             return false;
         }

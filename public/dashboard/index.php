@@ -4,6 +4,10 @@
 <?php require_once(SHARED_PATH.'/header.php'); ?>
 <!-- #####=END Header=##### -->
 
+<!-- #####=START Admin nav=##### -->
+<?php require_once(SHARED_PATH.'/admin_nav.php'); ?>
+<!-- #####=END Admin nav=##### -->
+
 <!-- main content -->
 <div class="container">
     <div class="row">

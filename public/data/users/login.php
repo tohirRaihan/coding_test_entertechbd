@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $return['url'] = "../index.php";
         }
         Session::setSessionData('user_logged', $user_login['id']);
+        Session::setSessionData('user_role', $user_login['role']);
         Session::setSessionData('user_name', $user_login['name']);
     } else {
         $return['status'] = 'failure';
