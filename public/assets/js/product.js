@@ -68,3 +68,19 @@ const buyProduct = (event, id) => {
         }
     });
 };
+
+// create a new product
+const newProduct = (event) => {
+    event.preventDefault();
+    console.log('new product');
+    const name = document.getElementById('name').value;
+    const unitPrice = document.getElementById('unit_price').value;
+    const location = document.getElementById('location').value;
+    const data = {name, unitPrice, location};
+    console.log(data);
+
+    // // hiding the modal
+    // const truck_modal = document.querySelector('#new-product');
+    // const modal = bootstrap.Modal.getInstance(truck_modal);
+    // modal.hide();
+}

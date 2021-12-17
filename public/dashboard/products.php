@@ -6,6 +6,7 @@ use App\Product;
 
 $products = Product::all();
 $count = 1;
+$scripts = ['product'];
 ?>
 
 <!-- #####=START Header=##### -->
