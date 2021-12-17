@@ -3,6 +3,7 @@
 require_once('../../private/initialize.php');
 
 use App\Product;
+use Database\Session;
 
 $products = Product::all();
 $count = 1;
@@ -25,6 +26,13 @@ $scripts = ['product'];
             <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#new-product">
                 New Product <i class="fa fa-plus-circle ml-2" aria-hidden="true"></i>
             </button>
+
+            <!-- success message goes here -->
+            <?php if ($message = Session::getFlashData('success_message')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= $message ?>
+                </div>
+            <?php endif; ?>
 
             <table class="table table-striped table-bordered text-center">
                 <thead>

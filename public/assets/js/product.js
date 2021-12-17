@@ -47,19 +47,11 @@ const buyProduct = (event, id) => {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.status === 'success') {
-                        Swal.fire(
-                            'Purchased!',
-                            data.successMessage,
-                            'success'
-                        );
+                        Swal.fire('Purchased!', data.successMessage, 'success');
                     } else if (data.status === 'userNotLoggedIn') {
                         window.location = data.url;
                     } else if (data.status === 'failure') {
-                        Swal.fire(
-                            'Failed!',
-                            data.failureMessage,
-                            'error'
-                        );
+                        Swal.fire('Failed!', data.failureMessage, 'error');
                     }
                 })
                 .catch((error) =>
@@ -72,15 +64,30 @@ const buyProduct = (event, id) => {
 // create a new product
 const newProduct = (event) => {
     event.preventDefault();
-    console.log('new product');
     const name = document.getElementById('name').value;
     const unitPrice = document.getElementById('unit_price').value;
     const location = document.getElementById('location').value;
-    const data = {name, unitPrice, location};
-    console.log(data);
+    const data = { name, unitPrice, location };
 
-    // // hiding the modal
-    // const truck_modal = document.querySelector('#new-product');
-    // const modal = bootstrap.Modal.getInstance(truck_modal);
-    // modal.hide();
-}
+    fetch('../data/products/new_product.php', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json' // sent request
+        }
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            if (data.status === 'success') {
+                // hiding the modal
+                const truck_modal = document.querySelector('#new-product');
+                const modal = bootstrap.Modal.getInstance(truck_modal);
+                modal.hide();
+                window.location.reload();
+            } else {
+                Swal.fire('Failed!', 'Unable to create new product', 'warning')
+            }
+        })
+        .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
+};
