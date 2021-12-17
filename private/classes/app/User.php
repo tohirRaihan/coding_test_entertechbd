@@ -3,6 +3,7 @@
 namespace App;
 
 use Database\Database;
+use Database\Session;
 
 class User extends Database
 {
@@ -10,6 +11,13 @@ class User extends Database
     {
         $sql = "SELECT * FROM `users` WHERE `email` = ? AND `password` = ? LIMIT 1";
         return parent::getRow($sql, [$email, $password]);
+    }
+
+    public static function logout()
+    {
+        Session::clearSession();
+        redirect_to(url_for('dashboard/login.php'));
+        die;
     }
 
     public static function register($name, $email, $location, $password)
