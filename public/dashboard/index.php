@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="mt-5 text-center">Dashboard of your application !!</h1>
+            <h1 class="mt-5 text-center">Welcome to the Admin Panel</h1>
         </div>
     </div>
 </div>

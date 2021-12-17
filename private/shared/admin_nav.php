@@ -14,6 +14,15 @@ use Database\Session;
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?= url_for('index.php') ?>">Home</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= url_for('dashboard/index.php') ?>">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= url_for('dashboard/products.php') ?>">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= url_for('index.php') ?>">Orders</a>
+                </li>
                 <?php if ($name = Session::getSessionData('user_name')) : ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
