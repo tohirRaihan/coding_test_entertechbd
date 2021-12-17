@@ -21,7 +21,7 @@ use Database\Session;
                     <a class="nav-link active" aria-current="page" href="<?= url_for('dashboard/products.php') ?>">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?= url_for('index.php') ?>">Orders</a>
+                    <a class="nav-link active" aria-current="page" href="<?= url_for('dashboard/orders.php') ?>">Orders</a>
                 </li>
                 <?php if ($name = Session::getSessionData('user_name')) : ?>
                     <li class="nav-item dropdown">
