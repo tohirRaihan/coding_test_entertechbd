@@ -7,7 +7,7 @@ class Product extends Database
 {
     public static function all()
     {
-        $sql = "SELECT * FROM `products` ORDER BY `id` DESC";
+        $sql = "SELECT * FROM `products` ORDER BY `name`";
         return parent::getRows($sql, []);
     }
 }
