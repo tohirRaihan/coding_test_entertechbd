@@ -39,9 +39,19 @@ class User extends Database
         return parent::getRow($sql, [$id]);
     }
 
-    public static function auth()
+    public static function authUser()
     {
         if (Session::getSessionData('user_logged')) {
+            return true;
+        } else {
+            redirect_to(url_for('dashboard/login.php'));
+            die;
+        }
+    }
+
+    public static function authAdmin()
+    {
+        if (Session::getSessionData('user_role') == 1) {
             return true;
         } else {
             redirect_to(url_for('dashboard/login.php'));
