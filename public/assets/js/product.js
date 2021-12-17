@@ -54,6 +54,12 @@ const buyProduct = (event, id) => {
                         );
                     } else if (data.status === 'userNotLoggedIn') {
                         window.location = data.url;
+                    } else if (data.status === 'failure') {
+                        Swal.fire(
+                            'Failed!',
+                            data.failureMessage,
+                            'error'
+                        );
                     }
                 })
                 .catch((error) =>

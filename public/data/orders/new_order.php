@@ -23,6 +23,14 @@ if (!Session::getSessionData('user_logged')) {
 $product_id = $data['productId'];
 $quantity = $data['orderQuantity'];
 
+// check if quantity is less than or equal to 0;
+if ($quantity <= 0) {
+    $return['status'] = 'failure';
+    $return['failureMessage'] = 'Quantity can\'t be less than or equal to 0';
+    echo json_encode($return);
+    die;
+}
+
 $product = Product::find($product_id);
 $unit_price = $product['unit_price'];
 $product_location = $product['location'];
@@ -45,5 +53,6 @@ if ($create_new_order) {
     $return['status'] = 'success';
 } else {
     $return['status'] = 'failure';
+    $return['failureMessage'] = 'Unable to place a new order';
 }
 echo json_encode($return);
