@@ -2,9 +2,11 @@ const register = (event) => {
     event.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const location = document.getElementById('location').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm_password').value;
-    const data = { name, email, password };
+    const data = { name, email, location, password };
+    console.log(data);
 
     if (password === confirmPassword) {
         fetch('../data/users/register.php', {
@@ -16,6 +18,7 @@ const register = (event) => {
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data);
                 if (data.status === 'user_exist') {
                     Swal.fire(
                         'Error!',

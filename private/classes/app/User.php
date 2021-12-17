@@ -12,10 +12,10 @@ class User extends Database
         return parent::getRow($sql, [$email, $password]);
     }
 
-    public static function register($name, $email, $password)
+    public static function register($name, $email, $location, $password)
     {
-        $sql = "INSERT INTO `users`(`name`, `email`, `password`) VALUES (?,?,?)";
-        return parent::insertRow($sql, [$name, $email, $password]);
+        $sql = "INSERT INTO `users`(`name`, `email`, `location`, `password`) VALUES (?,?,?,?)";
+        return parent::insertRow($sql, [$name, $email, $location, $password]);
     }
 
     // check if a user exists with an email

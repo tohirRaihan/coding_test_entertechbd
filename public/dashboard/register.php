@@ -18,15 +18,25 @@ $scripts = ['register'];
                 <div class="card-body px-5">
                     <form onsubmit="register(event)" method="POST">
                         <div class="mb-3">
-                            <input id="name" type="text" class="form-control py-2" placeholder="Your full name">
+                            <input id="name" type="text" class="form-control py-2" placeholder="Your full name" required>
                         </div>
 
                         <div class="mb-3">
-                            <input id="email" type="email" class="form-control py-2" placeholder="Your email">
+                            <input id="email" type="email" class="form-control py-2" placeholder="Your email" required>
                         </div>
 
                         <div class="mb-3">
-                            <input id="password" type="password" class="form-control py-2" placeholder="Password">
+                            <select id="location" class="form-select" required>
+                                <option value="" selected>Select Location</option>
+                                <option value="Dhaka">Dhaka</option>
+                                <option value="Rajshahi">Rajshahi</option>
+                                <option value="Chittagong">Chittagong</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <input id="password" type="password" class="form-control py-2" placeholder="Password" required>
                         </div>
 
                         <div class="mb-3">
