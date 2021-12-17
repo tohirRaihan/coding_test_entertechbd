@@ -39,12 +39,12 @@ $scripts = ['product'];
                             <td>
                                 <div class="input-group mx-auto" style="width: 120px;">
                                     <button onclick="decrease(event)" class="input-group-text">-</button>
-                                    <input type="text" class="form-control" value="1">
+                                    <input type="text" class="form-control quantity" value="1">
                                     <button onclick="increase(event)" class="input-group-text">+</button>
                                 </div>
                             </td>
                             <td>
-                                <button onclick="buyProduct(<?= $product['id'] ?>)" class="btn btn-sm btn-primary">Buy<i class="fas fa-shopping-basket ms-1"></i></button>
+                                <button onclick="buyProduct(event, <?= $product['id'] ?>)" class="btn btn-sm btn-primary">Buy<i class="fas fa-shopping-basket ms-1"></i></button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
