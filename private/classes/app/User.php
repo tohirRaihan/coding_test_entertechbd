@@ -32,6 +32,12 @@ class User extends Database
         $sql = "SELECT * FROM `users` WHERE `email` = ? LIMIT 1";
         return parent::getRow($sql, [$email]);
     }
+
+    public static function findUser($id)
+    {
+        $sql = "SELECT * FROM `users` WHERE `id` = ? LIMIT 1";
+        return parent::getRow($sql, [$id]);
+    }
 }
 // Create a new user to instantiate a Connection
 $user = new User;

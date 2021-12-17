@@ -21,6 +21,13 @@ $scripts = ['login'];
                 </div>
             <?php endif; ?>
 
+            <!-- Error message goes here -->
+            <?php if ($message = Session::getFlashData('error_message')) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $message ?>
+                </div>
+            <?php endif; ?>
+
             <div class="card shadow-lg">
                 <div class="border-top border-3 border-primary rounded-top"></div>
                 <i class="d-block fas fa-user-circle text-center text-primary my-3" style="font-size: 80px;"></i>

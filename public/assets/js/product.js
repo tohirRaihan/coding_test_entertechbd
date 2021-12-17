@@ -53,12 +53,8 @@ const buyProduct = (event, id) => {
                             'Your product has been purchased successfully!.',
                             'success'
                         );
-                    } else {
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'Error!',
-                            text: 'User email/password does not match'
-                        });
+                    } else if (data.status === 'userNotLoggedIn') {
+                        window.location = data.url;
                     }
                 })
                 .catch((error) =>
