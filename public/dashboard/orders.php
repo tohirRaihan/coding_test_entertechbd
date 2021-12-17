@@ -6,6 +6,7 @@ require_once('../../private/initialize.php');
 
 $orders = Order::all();
 $count = 1;
+$scripts = ['order'];
 ?>
 
 <!-- #####=START Header=##### -->
@@ -31,7 +32,7 @@ $count = 1;
                         <th scope="col">Quantity</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Change Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,9 +45,19 @@ $count = 1;
                             <td>$<?= $order['amount'] ?></td>
                             <td><?= $order['status'] ?></td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#change-order-status">
-                                    Change Status
-                                </button>
+                                <form onsubmit="changeStatus(event, <?= $order['id'] ?>)">
+                                    <div class="input-group">
+                                        <select id="change_status" class="form-select" required>
+                                            <option value="" selected>Select Status</option>
+                                            <option value="Submitted">Submitted</option>
+                                            <option value="In transit">In transit</option>
+                                            <option value="Delivered">Delivered</option>
+                                        </select>
+                                        <button type="submit" class="input-group-text btn btn-sm btn-primary">
+                                            Update
+                                        </button>
+                                    </div>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -56,6 +67,10 @@ $count = 1;
         </div>
     </div>
 </div>
+
+<!-- ########## START: MODALS ########## -->
+<?php include_once PRIVATE_PATH . '/modals/orders/change_status.php' ?>
+<!-- ########## END: MODALS ########## -->
 
 <!-- #####=START FOOTER=##### -->
 <?php require_once(SHARED_PATH . '/footer.php'); ?>
