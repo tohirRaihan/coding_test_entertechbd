@@ -39,7 +39,15 @@ class Order extends Database
 
     public static function checkProductAndOrder()
     {
-        $sql = "SELECT `product_id`, SUM(`quantity`) AS total_orders FROM `orders` GROUP BY `product_id`";
+        $sql = "SELECT
+                orders.product_id,
+                SUM(orders.quantity) AS total_orders,
+                SUM(orders.amount) AS total_amount,
+                products.name as product_name
+                FROM `orders`
+                JOIN products
+                ON orders.product_id = products.id
+                GROUP BY orders.product_id";
         return parent::getRows($sql, []);
     }
 }

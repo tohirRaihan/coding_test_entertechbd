@@ -1,5 +1,13 @@
 <?php
+
 require_once('../../private/initialize.php');
+
+use Database\Session;
+
+if (Session::getSessionData('user_logged')) {
+    redirect_to(url_for('index.php'));
+    die;
+}
 $scripts = ['register'];
 ?>
 

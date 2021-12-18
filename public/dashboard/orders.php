@@ -3,8 +3,10 @@
 require_once('../../private/initialize.php');
 
 use App\Order;
+use App\User;
 use Database\Session;
 
+User::authAdmin();
 $orders = Order::all();
 $count = 1;
 $scripts = ['order'];

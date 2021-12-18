@@ -3,8 +3,10 @@
 require_once('../../private/initialize.php');
 
 use App\Product;
+use App\User;
 use Database\Session;
 
+User::authAdmin();
 $products = Product::all();
 $count = 1;
 $scripts = ['product'];
