@@ -1,10 +1,9 @@
 const changeStatus = (event, id) => {
     event.preventDefault();
-    console.log(id);
-    const status = document.getElementById('change_status').value;
+    const status = event.target.querySelector('.change_status').value;
     const data = { id, status };
-    console.log(data);
 
+    // confirm if you want to update or not
     Swal.fire({
         title: 'Are you sure?',
         text: 'Do you really want to update the order status?',
@@ -24,7 +23,6 @@ const changeStatus = (event, id) => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     if (data.status === 'success') {
                         window.location.reload();
                     } else {

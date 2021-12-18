@@ -55,7 +55,7 @@ $scripts = ['order'];
                             <td>
                                 <form onsubmit="changeStatus(event, <?= $order['id'] ?>)">
                                     <div class="input-group">
-                                        <select id="change_status" class="form-select" required>
+                                        <select class="form-select change_status" required>
                                             <option value="" selected>Select Status</option>
                                             <option value="Submitted">Submitted</option>
                                             <option value="In transit">In transit</option>
