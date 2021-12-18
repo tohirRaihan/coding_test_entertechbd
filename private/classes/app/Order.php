@@ -36,6 +36,12 @@ class Order extends Database
         $sql = "UPDATE `orders` SET `status`=? WHERE `id`=? LIMIT 1";
         return parent::updateRow($sql, [$status, $id]);
     }
+
+    public static function checkProductAndOrder()
+    {
+        $sql = "SELECT `product_id`, SUM(`quantity`) AS total_orders FROM `orders` GROUP BY `product_id`";
+        return parent::getRows($sql, []);
+    }
 }
 // Create a new order to instantiate a Connection
 $order = new Order;
