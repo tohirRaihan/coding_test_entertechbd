@@ -30,6 +30,12 @@ class Order extends Database
         $sql = "INSERT INTO `orders`(`user_id`, `product_id`, `quantity`, `amount`) VALUES (?,?,?,?)";
         return parent::insertRow($sql, [$user_id, $product_id, $quantity, $amount]);
     }
+
+    public static function updateStatus($status, $id)
+    {
+        $sql = "UPDATE `orders` SET `status`=? WHERE `id`=? LIMIT 1";
+        return parent::updateRow($sql, [$status, $id]);
+    }
 }
 // Create a new order to instantiate a Connection
 $order = new Order;

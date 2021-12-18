@@ -1,8 +1,9 @@
 <?php
 
-use App\Order;
-
 require_once('../../private/initialize.php');
+
+use App\Order;
+use Database\Session;
 
 $orders = Order::all();
 $count = 1;
@@ -22,6 +23,13 @@ $scripts = ['order'];
     <div class="row">
         <div class="col">
             <h1 class="text-center mb-4">All Orders</h1>
+
+            <!-- success message goes here -->
+            <?php if ($message = Session::getFlashData('success_message')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= $message ?>
+                </div>
+            <?php endif; ?>
 
             <table class="table table-striped table-bordered text-center">
                 <thead>
