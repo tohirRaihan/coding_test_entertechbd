@@ -7,6 +7,7 @@ use App\Product;
 $products = Product::all();
 $count = 1;
 $scripts = ['product'];
+$page_title = 'Home';
 ?>
 
 <!-- #####=START Header=##### -->

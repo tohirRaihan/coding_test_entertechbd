@@ -10,6 +10,7 @@ User::authAdmin();
 $products = Product::all();
 $count = 1;
 $scripts = ['product'];
+$page_title = 'Products';
 ?>
 
 <!-- #####=START Header=##### -->

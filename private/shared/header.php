@@ -17,7 +17,7 @@
     }
     ?>
 
-    <title>Coding Task</title>
+    <title>Coding Task | <?= $page_title ?></title>
 </head>
 
 <body>

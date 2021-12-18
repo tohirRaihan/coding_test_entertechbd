@@ -13,7 +13,7 @@ use Database\Session;
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <?php if (User::isAdmin()) : ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= url_for('dashboard/index.php') ?>">Dashboard</a>
+                        <a class="nav-link" aria-current="page" href="<?= url_for('dashboard/index.php') ?>">Dashboard</a>
                     </li>
                 <?php endif; ?>
                 <?php if ($name = Session::getSessionData('user_name')) : ?>

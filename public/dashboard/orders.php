@@ -10,6 +10,7 @@ User::authAdmin();
 $orders = Order::all();
 $count = 1;
 $scripts = ['order'];
+$page_title = 'Orders';
 ?>
 
 <!-- #####=START Header=##### -->

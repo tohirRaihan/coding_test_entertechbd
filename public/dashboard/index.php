@@ -8,6 +8,7 @@ use App\User;
 User::authAdmin();
 $checkOrders = Order::checkProductAndOrder();
 $count = 1;
+$page_title = 'Dashboard';
 ?>
 
 <!-- #####=START Header=##### -->

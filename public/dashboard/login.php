@@ -9,6 +9,7 @@ if (Session::getSessionData('user_logged')) {
     die;
 }
 $scripts = ['login'];
+$page_title = 'Login';
 ?>
 
 <!-- #####=START Header=##### -->
