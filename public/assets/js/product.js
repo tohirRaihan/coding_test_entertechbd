@@ -34,9 +34,10 @@ const buyProduct = (event, id) => {
             console.log(id);
             const productId = id;
             const orderQuantity = event.target
-                .closest('div')
+                .closest('tr')
                 .querySelector('.quantity').value;
             const data = { productId, orderQuantity };
+            console.log(data);
             fetch('data/orders/new_order.php', {
                 method: 'POST',
                 body: JSON.stringify(data),
